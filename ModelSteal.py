@@ -48,7 +48,7 @@ fns=get_image_files(path)
 failed=verify_images(fns)#looks for files that arent images
 failed.map(Path.unlink);#unlinks the failed files from the folder
 
-path = cwd + "peppers/"
+#path = cwd + "peppers/"
 datagen = ImageDataGenerator(featurewise_center=False, samplewise_center=True, rotation_range=25, zoom_range = 0.25, width_shift_range=0.25, height_shift_range=0.25, horizontal_flip=True, vertical_flip=True)
 train_it = datagen.flow_from_directory(path, target_size=(SIZEXYZ[0], SIZEXYZ[1]), color_mode='rgb', class_mode='categorical', batch_size=8)
 test_it = datagen.flow_from_directory(path, target_size=(SIZEXYZ[0], SIZEXYZ[1]), color_mode='rgb', class_mode='categorical', batch_size=8)
